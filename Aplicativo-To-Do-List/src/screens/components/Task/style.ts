@@ -3,13 +3,13 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     containerP: {
         width: '100%',
-        backgroundColor: '#1F1E25',
-        borderRadius: 5,
+        backgroundColor: '#292929',
+        borderRadius: 30,
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 10
       },
-      name: {
+      tarefa: {
         flex: 1,
         fontSize: 16,
         color: '#FFF',
@@ -20,10 +20,12 @@ export const styles = StyleSheet.create({
         fontSize: 24
       },
       buttonRm: {
-        width: 56,
-        height: 56,
-        borderRadius: 5,
-        backgroundColor: '#E23C44',
+        width: 45,
+        height: 45,
+        borderWidth: 5,
+        borderRadius: 30,
+        borderColor: '#292929',
+        backgroundColor: '#6DB06E',
         alignItems: 'center',
         justifyContent: 'center'
       },

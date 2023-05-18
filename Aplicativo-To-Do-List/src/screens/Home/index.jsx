@@ -1,6 +1,6 @@
 import { Alert, FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { styles } from './style';
-import { Task } from 'components/Task';
+import { Task } from '../components/Task';
 import React, { useState } from 'react';
 
 
@@ -10,40 +10,40 @@ export function Home() {
 
     function handleAddTask() {
         if(tasks.includes(task)){
-            return Alert.alert('Tarefa já cadastrada', 'Crie uma tarefa diferente!');
+            return Alert.alert('Essa tarefa ainda existe', 'Crie uma tarefa diferente!');
         } else if(task.trim() === ""){
-            return Alert.alert('Campo vazio', 'Digite uma tarefa!');
+            return Alert.alert('Nada para fazer...', 'Adicione uma tarefa!');
         }
-        setTask(prevState => [...prevState, task]);
+        setTasks(prevState => [...prevState, task]);
         setTask('');
     }
 
-    function handleRemoveTask(item) {
-        Alert.alert('Deletar Task', 'Tem certeza que deseja remover a tarefa ${item}?', [
+    function handleRemoveTask(tarefa) {
+        Alert.alert('Concluir tarefa?', `A tarefa "${tarefa}" será concluída`, [
             {
-                text: 'Cancelar'
+                text: 'Ainda não'
             },
             {
-                text: 'Confirmar',
-                onPress: () => setTask(prevState => prevState.filter(task => task !== item))
+                text: 'Concluir',
+                onPress: () => setTasks(prevState => prevState.filter(it => it !== tarefa))
             },
         ])
     }
 
     return (
         <View style={styles.container}>
-            <Text style={styles.eventName}>
-                Evento
+            <Text style={styles.h1}>
+                To-do List
             </Text>
 
-            <Text style={styles.eventDate}>
-                Quinta, 11 de maio de 2023.
+            <Text style={styles.h2}>
+                Adicone suas tarefas!
             </Text>
 
             <View style={styles.form}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Título da tarefa"
+                    placeholder="Nova tarefa"
                     placeholderTextColor="#6B6B6B"
                     value={task}
                     onChangeText={setTask}
@@ -60,8 +60,8 @@ export function Home() {
                 data={tasks}
                 keyExtractor={(item) => item}
                 renderItem={({ item }) => (
-                    <Participant
-                    name={item}
+                    <Task
+                    tarefa={item}
                     remove={()=>handleRemoveTask(item)}
                     />
                 )}

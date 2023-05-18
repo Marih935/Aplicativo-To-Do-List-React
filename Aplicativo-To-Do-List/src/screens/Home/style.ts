@@ -3,24 +3,24 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#131016',
+    backgroundColor: '#343234',
     padding: 24
   },
-  eventName: {
+  h1: {
     color: '#FFF',
     fontSize: 24,
     fontWeight: 'bold',
     marginTop: 48
   },
-  eventDate: {
+  h2: {
     color: '#6B6B6B',
     fontSize: 16
   },
   input: {
     flex: 1,
     height: 56,
-    backgroundColor: '#1F1E25',
-    borderRadius: 5,
+    backgroundColor: '#292929',
+    borderRadius: 30,
     color: '#FFFF',
     padding: 16,
     fontSize: 16,
@@ -33,8 +33,10 @@ export const styles = StyleSheet.create({
   buttonAdd: {
     width: 56,
     height: 56,
-    borderRadius: 5,
-    backgroundColor: '#31CF67',
+    borderWidth: 5,
+    borderColor: '#343234',
+    borderRadius:30,
+    backgroundColor: '#FE5F55',
     alignItems: 'center',
     justifyContent: 'center'
   },
